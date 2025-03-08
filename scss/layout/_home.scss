@@ -1,0 +1,66 @@
+// video properties
+
+.video-container{
+    position: relative;
+    z-index: -1;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    
+    video{
+        @extend %full-screen-fixed;
+        object-fit: cover;
+    }
+}
+
+.text{
+    @extend %full-screen-fixed;
+    background-color: rgb(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+
+    h1{
+        position: relative;
+        top: 50%;
+        color: $primary-font-color;
+        font-weight: 800;
+        font-size: clamp(3.5rem, 5vw, 6rem);
+        z-index: 10;
+        animation: colorChange 1.5s ease-in-out infinite alternate;
+
+        @include tablet-vertical{
+            font-size: 5rem;
+        }
+        @include smartphone-vertical{
+            font-size:3rem ;
+        }
+
+    }
+        @keyframes colorChange{
+            from{
+                color: darken($primary-font-color, 20%);
+            }
+            to{
+                color: white;
+            }
+            
+        }
+    p{
+        color: white;
+        position: relative;
+        bottom: 31%;
+        text-align: center;
+        font-size: clamp(1rem, 1vw, 1.5rem);
+        font-weight: 200;
+
+        @include tablet-vertical{
+            font-size: 1.5rem;
+        }
+
+        @include smartphone-vertical{
+            font-size:1rem ;
+        }
+    }
+
+
+}
